@@ -17,14 +17,14 @@ def create_playlist():
 def enter_songs(playlist):
     while True:
         song = input("Enter the songs you want to listen to. Type 'stop' to stop adding songs to the queue:")
-        if song.strip() == "":
-            playlist.pop()
         if song == "stop":
             break
         playlist.append(song)
-    if not playlist:
-        print("Playlist cannot be empty. Enter atleast one song.")
-        enter_songs(playlist)
+        if song.strip() == "":
+            playlist.pop()
+        if not playlist:
+            print("Playlist cannot be empty. Enter atleast one song.")
+            continue
     return playlist
 
 def play_song(playlist):
